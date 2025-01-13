@@ -21,7 +21,7 @@ ZABBIX_INSTANCES = {
         "username": "Admin",
         "password": "zabbix"
     },
-    "Zabbix Trucks - Homologação": {
+    "Zabbix - Homologação": {
         "url": "http://192.168.0.35/zabbix/api_jsonrpc.php",
         "username": "Admin",
         "password": "zabbix"
