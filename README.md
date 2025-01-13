@@ -1,1 +1,1 @@
-# Zabbix_gerenciador_de_blackouts
+# Zabbix gerenciador de Blackouts
