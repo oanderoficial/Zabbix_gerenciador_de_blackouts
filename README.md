@@ -2,6 +2,7 @@
 
 ![Python Version](https://img.shields.io/badge/python-3.13|3.12-blue)
 [![License MIT](https://img.shields.io/github/license/oanderoficial/Zabbix_gerenciador_de_blackouts)](https://opensource.org/licenses/MIT)
+[![Dependency](https://img.shields.io/badge/library-PyQt5-orange)](https://pypi.org/project/PyQt5/)
 <p>Gerenciador de Blackouts no Zabbix, com suporte a múltiplos ambientes.</p>
 
 ![image](https://github.com/user-attachments/assets/92d00b4a-16db-40f2-88de-737d0105d47d)
