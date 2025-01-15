@@ -3,9 +3,24 @@ import requests
 import json
 from PyQt5.QtCore import Qt, QDateTime
 from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLabel, QFormLayout, QLineEdit,
-    QComboBox, QMessageBox, QDateTimeEdit, QCheckBox, QListWidget, QAbstractItemView, QTableWidget,
-    QTableWidgetItem, QHeaderView, QHBoxLayout
+    QApplication, 
+    QMainWindow, 
+    QVBoxLayout, 
+    QWidget, 
+    QPushButton, 
+    QLabel, 
+    QFormLayout, 
+    QLineEdit,
+    QComboBox, 
+    QMessageBox, 
+    QDateTimeEdit, 
+    QCheckBox, 
+    QListWidget, 
+    QAbstractItemView, 
+    QTableWidget,
+    QTableWidgetItem, 
+    QHeaderView, 
+    QHBoxLayout
 )
 
 
