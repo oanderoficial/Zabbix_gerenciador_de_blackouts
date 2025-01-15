@@ -11,3 +11,6 @@
 ## Administrar Blackouts 
 
 ![image](https://github.com/user-attachments/assets/a318e2e4-94bb-4334-85f2-604ab9599bf3)
+
+## References
+<strong> QT Documentation </strong> https://doc.qt.io/qt.html#qtforpython
