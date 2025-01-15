@@ -14,3 +14,5 @@
 
 ## References
 <strong> QT Documentation </strong> https://doc.qt.io/qt.html#qtforpython
+<br>
+<strong> JSON-RPC-V2 </strong> https://www.jsonrpc.org/specification#overview
