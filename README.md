@@ -12,6 +12,8 @@
 
 ![image](https://github.com/user-attachments/assets/a318e2e4-94bb-4334-85f2-604ab9599bf3)
 
+<strong> Informação: </strong> Caso esteja utilizando o Zabbix na versão 5 (ou anteriores), troque o parâmetro "username" por "user". 
+
 ## References
 <strong> QT Documentation </strong> https://doc.qt.io/qt.html#qtforpython
 <br>
