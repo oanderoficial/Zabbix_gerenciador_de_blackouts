@@ -17,6 +17,9 @@
 
 ![image](https://github.com/user-attachments/assets/b24b30e1-cedb-42be-b929-ca04fa510fe6)
 
+![image](https://github.com/user-attachments/assets/952aa2f4-bc5f-44f8-b812-82afbaa3ba61)
+
+
 <strong> Informação: </strong> Caso esteja utilizando o Zabbix na versão 5 (ou anteriores), troque o parâmetro "username" por "user". 
 
 ## References
