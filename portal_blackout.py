@@ -10,13 +10,13 @@ ZABBIX_INSTANCES = {
         "url": "http://192.168.0.31/zabbix/api_jsonrpc.php",
         "user": "Admin",
         "password": "zabbix",
-        "usar_username": True  # Zabbix 5
+        "usar_username": False  # Zabbix 5
     },
     "Zabbix Homologação": {
         "url": "http://192.168.0.31/zabbix/api_jsonrpc.php",
         "user": "Admin",
         "password": "zabbix",
-        "usar_username": True  # Zabbix 5
+        "usar_username": False  # Zabbix 5
     },
     "Zabbix Desenvolvimento": {
         "url": "http://192.168.0.31/zabbix/api_jsonrpc.php",
