@@ -75,3 +75,25 @@ WantedBy=multi-user.target
 ```
 
 ## ETAPA 3: Ativar e iniciar o serviço
+
+```bash
+# Recarrega os serviços
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+
+# Habilita para iniciar no boot
+sudo systemctl enable zabbix-portal.service
+
+# Inicia o serviço manualmente
+sudo systemctl start zabbix-portal.service
+```
+
+## ETAPA 4: Verificar status e logs
+
+```bash
+# Verifica se está rodando
+sudo systemctl status zabbix-portal.service
+
+# Ver logs ao vivo
+journalctl -u zabbix-portal.service -f
+```
