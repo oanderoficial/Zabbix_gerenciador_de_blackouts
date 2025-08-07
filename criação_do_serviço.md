@@ -50,3 +50,28 @@ Dê permissão de execução:
 chmod +x /opt/portal_blackouts/start.sh
 ````
 
+## ETAPA 2: Criar o serviço systemd
+
+```init
+sudo nano /etc/systemd/system/zabbix-portal.service
+```
+Conteúdo:
+
+```bash
+[Unit]
+Description=Portal Gradio de Blackout Zabbix
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/opt/portal_blackouts/start.sh
+WorkingDirectory=/opt/portal_blackouts/
+Restart=on-failure
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
+```
+
+## ETAPA 3: Ativar e iniciar o serviço
