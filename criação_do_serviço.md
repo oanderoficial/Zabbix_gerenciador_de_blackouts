@@ -97,3 +97,12 @@ sudo systemctl status zabbix-portal.service
 # Ver logs ao vivo
 journalctl -u zabbix-portal.service -f
 ```
+
+## Acessar o portal
+
+* Se estiver rodando com server_name="0.0.0.0" e server_port=8080
+* Acesse de outro dispositivo da rede:
+
+```bash
+http://<ip_do_servidor>:8080
+```
