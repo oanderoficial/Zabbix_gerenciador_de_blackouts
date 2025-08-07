@@ -98,8 +98,16 @@ def filtrar_hosts(filtro):
         return gr.update(choices=list(host_map.keys()))
     return gr.update(choices=[host for host in host_map if filtro.lower() in host.lower()])
 
-def criar_blackout(nome, descricao, hosts_selecionados, hostnames_texto, inicio, fim, manter_dados):
+def criar_blackout(user_id, change_id, descricao, hosts_selecionados, hostnames_texto, inicio, fim, manter_dados):
     try:
+        if not user_id.strip():
+            raise Exception("ID do usuário é obrigatório.")
+        if not change_id.strip():
+            raise Exception("Número da Change é obrigatório.")
+
+        nome = f"ID: {user_id.strip()} Change: {change_id.strip()} - {descricao.strip()}"
+        descricao_final = f"Criado por ID: {user_id.strip()} referente à change {change_id.strip()}."
+
         host_ids = [host_map[h] for h in hosts_selecionados if h in host_map]
 
         if hostnames_texto:
@@ -110,16 +118,21 @@ def criar_blackout(nome, descricao, hosts_selecionados, hostnames_texto, inicio,
                 else:
                     raise Exception(f"Hostname '{h}' não encontrado.")
 
+        host_ids = list(set(host_ids))  # Remove duplicatas
+
         if not host_ids:
             raise Exception("Nenhum host válido selecionado.")
 
         time_from = int(inicio)
         time_till = int(fim)
 
+        if time_from >= time_till:
+            raise Exception("A data de início deve ser anterior à data de fim.")
+
         tipo = 0 if manter_dados else 1
         params = {
             "name": nome,
-            "description": descricao,
+            "description": descricao_final,
             "active_since": time_from,
             "active_till": time_till,
             "hostids": host_ids,
@@ -131,6 +144,7 @@ def criar_blackout(nome, descricao, hosts_selecionados, hostnames_texto, inicio,
         return f"Blackout '{nome}' criado com sucesso."
     except Exception as e:
         return f"Erro: {str(e)}"
+
 
 def listar_blackouts():
     try:
@@ -203,7 +217,9 @@ with gr.Blocks(css=estilo_css) as demo:
 
     with gr.Tabs():
         with gr.TabItem("Criar Blackout"):
-            nome = gr.Textbox(label="Nome do Blackout")
+            user_id = gr.Textbox(label="Seu ID (obrigatório, ex: ANDER45)")
+            change_id = gr.Textbox(label="Número da Change (obrigatório, ex: 125678789)")
+            #nome = gr.Textbox(label="Nome do Blackout")
             descricao = gr.Textbox(label="Descrição")
             search_host = gr.Textbox(label="Buscar Hosts")
             hosts = gr.CheckboxGroup(choices=[], label="Hosts Disponíveis")
@@ -217,7 +233,11 @@ with gr.Blocks(css=estilo_css) as demo:
             btn_criar = gr.Button("Criar Blackout")
 
             btn_carregar.click(lambda: gr.update(choices=carregar_hosts()), outputs=hosts)
-            btn_criar.click(criar_blackout, inputs=[nome, descricao, hosts, hostnames_manual, data_ini, data_fim, manter], outputs=resultado)
+            btn_criar.click(
+                criar_blackout, 
+                inputs=[user_id, change_id, descricao, hosts, hostnames_manual, data_ini, data_fim, manter], 
+                outputs=resultado
+            )
 
         with gr.TabItem("Visualizar Blackouts"):
             btn_listar = gr.Button("Atualizar Lista")
